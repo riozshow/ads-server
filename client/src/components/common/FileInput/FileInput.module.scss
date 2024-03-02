@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(grey, 10%);
+  border: 2px dashed rgba(grey, 20%);
+  border-radius: 7px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(grey, 5%);
+  }
+
+  &.set {
+    border: 2px dashed transparent;
+    background-color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+      rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+  }
+
+  p {
+    font-size: 14px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  input {
+    display: none !important;
+  }
+}

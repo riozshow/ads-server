@@ -1,0 +1,34 @@
+$color-secondary: rgb(53 133 143);
+$color-additional: rgb(53 133 143);
+
+$bg-900: darken($color-secondary, 70%);
+$bg-800: darken($color-secondary, 60%);
+$bg-700: darken($color-secondary, 50%);
+$bg-600: darken($color-secondary, 40%);
+$bg-500: darken($color-secondary, 30%);
+
+$base-color: rgb(0, 119, 255);
+
+$bg-light-900: lighten($base-color, 47%);
+$bg-light-800: lighten($base-color, 49%);
+
+$list-bg: #d9e9eb;
+
+$col-grad-1: rgb(16 171 190);
+$col-grad-2: rgb(191 53 225);
+
+@keyframes default {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.defaultAnimation {
+  animation: 0.2s default;
+}

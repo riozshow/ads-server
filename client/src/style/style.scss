@@ -1,0 +1,158 @@
+@import './settings.scss';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  transition: all 0.25s;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 0 5px rgba($bg-500, 4%);
+
+  background-image: linear-gradient(to bottom, #dde2e9 -100%, white 300%);
+
+  display: flex;
+
+  & > * {
+    flex: 1 1 auto;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  padding: 0;
+  margin: 0;
+  word-break: break-all;
+}
+
+p {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: #3c4043;
+}
+
+/* CSS */
+button {
+  border: none;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #3c4043;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  padding: 8px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform, opacity;
+
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+
+  &:hover {
+    background: #f6f9fe;
+  }
+
+  &.primary {
+    background-color: rgba(white, 90%);
+    background-image: linear-gradient(
+      to right,
+      $col-grad-1 0%,
+      $col-grad-2 100%
+    );
+
+    font-weight: 500;
+    border-radius: 5px;
+
+    background-size: 200% auto;
+    color: white;
+    border: none;
+
+    &:hover {
+      background-size: 200% auto;
+      background-image: linear-gradient(
+        to right,
+        $col-grad-1 0%,
+        $col-grad-2 100%
+      );
+
+      background-position: right center; /* change the direction of the change here */
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+input,
+textarea {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px inset rgba(grey, 50%);
+  color: #505050;
+  font-size: 14px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+label {
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: rgba($bg-500, 10%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+
+  li {
+    text-align: center;
+    flex: 1 1 auto;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(white, 50%);
+    }
+
+    &.active {
+      background-color: white;
+    }
+  }
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

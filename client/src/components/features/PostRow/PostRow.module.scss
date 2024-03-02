@@ -1,0 +1,63 @@
+@import '../../../style/settings.scss';
+
+.container {
+  cursor: pointer;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-radius: 10px;
+  border: 4px solid white;
+  background-color: rgba(white, 35%);
+  box-shadow: 0 0 10px #979ea3;
+  @extend .defaultAnimation;
+  position: relative;
+
+  &:hover {
+    background-color: rgba(white, 100%);
+  }
+
+  img {
+    opacity: 0;
+    height: 12rem;
+    border-radius: 5px;
+    aspect-ratio: 1/1;
+  }
+
+  &.isLoaded {
+    img {
+      opacity: 1;
+
+      &.noImage {
+        padding: 2rem;
+        opacity: 0.2;
+        background-color: rgba(black, 60%);
+      }
+    }
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  .details {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .price {
+    margin-left: auto;
+    margin-right: 1.5rem;
+    padding: 1rem;
+    font-size: 20px;
+  }
+}

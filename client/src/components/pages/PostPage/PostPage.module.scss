@@ -1,0 +1,63 @@
+@import '../../../style/style.scss';
+
+.container {
+  display: flex;
+  gap: 1rem;
+
+  .left,
+  .right {
+    border: 4px solid white;
+    background-color: rgba(white, 35%);
+    box-shadow: 0 0 10px #979ea3;
+    @extend .defaultAnimation;
+    border-radius: 10px;
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    h2 {
+      color: gray;
+    }
+
+    img {
+      height: 18rem;
+      border-radius: 5px;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+
+      &.noImage {
+        padding: 2rem;
+        opacity: 0.2;
+        background-color: rgba(black, 60%);
+      }
+    }
+  }
+
+  .right {
+    width: 300px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    gap: 2rem;
+    padding-top: 2rem;
+
+    img {
+      border-radius: 100vh;
+      width: 70%;
+      background-color: rgba(gray, 30%);
+      height: auto;
+    }
+
+    .userInfo {
+      color: #4f4f4f;
+      width: 100%;
+      background-color: rgba(white, 75%);
+      padding: 1rem;
+      border-radius: 7px;
+    }
+  }
+}

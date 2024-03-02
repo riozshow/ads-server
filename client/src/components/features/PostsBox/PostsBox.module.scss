@@ -1,0 +1,42 @@
+@import '../../../style/settings.scss';
+$gap: 10px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow: hidden;
+  overflow-x: visible;
+  position: relative;
+  height: 100%;
+
+  .topBar {
+    display: flex;
+    align-self: stretch;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 5px 0 10px rgba($bg-500, 50%);
+    z-index: 100;
+    position: absolute;
+    background-image: linear-gradient(
+      to left,
+      rgba($col-grad-1, 5%) 0%,
+      white 200%
+    );
+    transform: translateY(-100%);
+    backdrop-filter: blur(10px);
+
+    &.show {
+      transform: translateY(0%);
+    }
+
+    & > input {
+      background-color: rgba(white, 70%);
+      flex: 1 1 auto;
+      width: 100%;
+      font-size: 13px;
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../../style/settings.scss';
+
+.container {
+  flex: 1 1 auto;
+  background-color: rgba(white, 40%) !important;
+  padding: 0.5rem 1rem;
+  border: none !important;
+  border-radius: 7px;
+  backdrop-filter: blur(5px);
+  font-size: 15px !important;
+
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+
+  &::placeholder {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(black, 50%);
+  }
+}
