@@ -1,21 +1,20 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const helmet = require('helmet');
 const MongoStore = require('connect-mongo');
 const path = require('path');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
 
 const app = express();
 
 mongoose.connect(process.env.DB_URI);
 
-app.use(cors());
-app.use(helmet());
+app.use(express.static(path.join(__dirname, '/client/build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(cors());
+
 app.use(
   session({
     secret: process.env.EXPRESS_SESSION,
@@ -29,11 +28,16 @@ app.use(
 );
 
 app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/ads', require('./routes/ads.routes'));
+app.use('/api/posts', require('./routes/posts.routes'));
 app.use('/api/images', require('./routes/images.routes'));
+app.use('/api/users', require('./routes/users.routes'));
 
 app.get('*', (req, res) => {
-  res.json({ message: 'Not found' });
+  res.redirect('/');
+});
+
+app.get('/', (req, res) => {
+  res.render('/client/build/index.html');
 });
 
 app.listen('8000', () => {

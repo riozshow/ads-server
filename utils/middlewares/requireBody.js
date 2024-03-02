@@ -1,6 +1,8 @@
 const regexes = {
   login: /(?=.{3,16}$)(?=[a-zA-Z0-9_-]*$)/,
   password: /.{8}$/,
+  passwordRep: /.{8}$/,
+  price: /^\d+$/,
 };
 
 const filters = {
@@ -8,9 +10,10 @@ const filters = {
     typeof val === 'string' && val.length >= 10 && val.length <= 50,
   image: (val) =>
     typeof val === 'string' && val.length >= 10 && val.length <= 50,
+  avatar: (val) =>
+    typeof val === 'string' && val.length >= 10 && val.length <= 50,
   content: (val) =>
     typeof val === 'string' && val.length >= 20 && val.length <= 1000,
-  price: (val) => typeof parseInt(val) === 'number',
   location: (val) =>
     typeof val === 'string' && val.length >= 5 && val.length <= 100,
   phone: (val) =>

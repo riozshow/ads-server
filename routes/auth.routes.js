@@ -9,14 +9,13 @@ const router = express.Router();
 
 const BODY = {
   LOGIN: ['login', 'password'],
-  REGISTER: ['login', 'password', 'phone'],
+  REGISTER: ['login', 'password', 'passwordRep', 'phone'],
 };
 
-router.get('/user', tryCatch, controller.getUser);
+router.get('/user', tryCatch, requireLogin, controller.getUser);
 router.post(
   '/register',
-  tryCatch,
-  saveImage,
+  saveImage('avatar'),
   requireBody(BODY.REGISTER),
   controller.register
 );

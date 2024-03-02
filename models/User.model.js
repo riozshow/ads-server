@@ -28,6 +28,14 @@ const userSchema = new mongoose.Schema(
           phone: this.phone,
         };
       },
+      getPublicData() {
+        return {
+          _id: this._id,
+          login: this.login,
+          avatar: this.avatar,
+          phone: this.phone,
+        };
+      },
     },
   }
 );

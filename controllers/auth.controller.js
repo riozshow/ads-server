@@ -3,7 +3,11 @@ const User = require('../models/User.model');
 const Session = require('../models/Session.model');
 
 module.exports.register = async (req, res) => {
-  const { login, password, phone, image } = req.body;
+  const { login, password, passwordRep, phone, avatar } = req.body;
+
+  if (password !== passwordRep) {
+    return res.status(400).send({ message: 'Passwords must be the same' });
+  }
 
   if (await User.findOne({ login })) {
     return res
@@ -15,7 +19,7 @@ module.exports.register = async (req, res) => {
     login,
     password: await bcrypt.hash(password, 10),
     phone,
-    image,
+    avatar,
   });
 
   res
@@ -38,10 +42,9 @@ module.exports.login = async (req, res) => {
 
 module.exports.logout = async (req, res) => {
   if (process.env.NODE_ENV !== 'production') {
-    await Session.deleteMany({});
-  } else {
-    res.session.destroy();
+    await Session.deleteMany();
   }
+  req.session.destroy();
   res.send({ message: 'Logout successfull!' });
 };
 
